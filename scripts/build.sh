@@ -1,8 +1,11 @@
 #!/bin/bash
 
 REPOROOT=$(git rev-parse --show-toplevel)
+SIMULATOR_FOLDER=$REPOROOT/ChampSim
 TARGET_FOLDER=$REPOROOT/ChampSim/prefetcher
 BUILDER=$REPOROOT/ChampSim/build_champsim.sh
+
+cd "$SIMULATOR_FOLDER"
 
 BRANCH_PRED=perceptron
 LLC_REPLACEMENT=lru
