@@ -6,7 +6,9 @@ env:
     - BASEMODEL=next_line
 
 install:
+    - git submodule update --recursive --remote
     - cd $TRAVIS_BUILD_DIR/scripts; ./mount_prefetchers.sh
 
 script: 
+    - $TRAVIS_BUILD_DIR/scripts/build.sh $BASEMODEL
     - $TRAVIS_BUILD_DIR/scripts/run.sh $BASEMODEL
