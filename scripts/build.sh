@@ -30,7 +30,7 @@ echo "LLC prefetchers: ${LLC_PREF[@]}"
 for l1p in "${L1_PREF[@]}"; do
     for l2p in "${L2_PREF[@]}"; do
         for llcp in "${LLC_PREF[@]}"; do
-            echo "Buidling l1:${l1p}\tl2:${l2p}\tllc:${llcp}"
+            echo  -e "Buidling l1:${l1p}\tl2:${l2p}\tllc:${llcp}"
             $BUILDER ${BRANCH_PRED} ${l1p} ${l2p} ${llcp} ${LLC_REPLACEMENT} 1
             $BUILDER ${BRANCH_PRED} ${l1p} ${l2p} ${llcp} ${LLC_REPLACEMENT} 4
         done
