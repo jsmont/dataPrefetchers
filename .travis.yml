@@ -1,9 +1,11 @@
 dist: trusty
 language: bash
 
-before_install:
-    - cd $TRAVIS_BUILD_DIR/scripts; ./mount_prefetchers.sh
+env:
+    - BASEMODEL=no
+    - BASEMODEL=next_line
 
 install:
-    - cd $TRAVIS_BUILD_DIR/scripts; ./build.sh
-    - cd $TRAVIS_BUILD_DIR/scripts; ./build.sh
+    - cd $TRAVIS_BUILD_DIR/scripts; ./mount_prefetchers.sh
+
+scripts: "bundle exec $TRAVIS_BUILD_DIR/scripts/run.sh $BASEMODEL"
