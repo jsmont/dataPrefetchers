@@ -29,7 +29,7 @@ L1_PREF=($(parsePrefList l1d_pref))
 L2_PREF=($(parsePrefList l2c_pref))
 LLC_PREF=($(parsePrefList llc_pref))
 
-if [ -z "${BASE_L1_PREF}" ]; then
+if [ ! -z "${BASE_L1_PREF}" ]; then
     L1_PREF=($BASE_L1_PREF)
     if [ ! -f "$TARGET_FOLDER/$BASE_L1_PREF.l1d_pref" ]; then
         echo "L1: $BASE_L1_PREF does not exist!"
@@ -37,7 +37,7 @@ if [ -z "${BASE_L1_PREF}" ]; then
     fi
 fi
 
-if [ -z "${BASE_L2_PREF}" ]; then
+if [ ! -z "${BASE_L2_PREF}" ]; then
     L2_PREF=($BASE_L2_PREF)
     if [ ! -f "$TARGET_FOLDER/$BASE_L2_PREF.l2c_pref" ]; then
         echo "L2: $BASE_L2_PREF does not exist!"
@@ -45,7 +45,7 @@ if [ -z "${BASE_L2_PREF}" ]; then
     fi
 fi
 
-if [ -z "${BASE_LLC_PREF}" ]; then
+if [ ! -z "${BASE_LLC_PREF}" ]; then
     LLC_PREF=($BASE_LLC_PREF)
     if [ ! -f "$TARGET_FOLDER/$BASE_LLC_PREF.llc_pref" ]; then
         echo "LLC: $BASE_LLC_PREF does not exist!"
