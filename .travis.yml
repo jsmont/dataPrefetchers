@@ -11,7 +11,8 @@ env:
         - BUILD_ID=3
 
 install:
-    - git submodule update --recursive --remote
+    - git submodule update --init --recursive --remote
+    - cd $TRAVIS_BUILD_DIR/scripts; ./pull_traces.sh
     - cd $TRAVIS_BUILD_DIR/scripts; ./mount_prefetchers.sh
 
 script: 
