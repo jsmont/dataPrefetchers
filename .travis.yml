@@ -1,0 +1,5 @@
+dist: trusty
+language: bash
+
+build:
+    - cd $TRAVIS_BUILD_DIR/; bash mount_prefetchers.sh
