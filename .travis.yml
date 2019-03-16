@@ -5,7 +5,9 @@ env:
     - BASEMODEL=no
     - BASEMODEL=next_line
 
-install:
+before_install:
     - cd $TRAVIS_BUILD_DIR/scripts; ./mount_prefetchers.sh
+
+install: "$TRAVIS_BUILD_DIR/scripts/run.sh $BASEMODEL"
 
 script: "$TRAVIS_BUILD_DIR/scripts/run.sh $BASEMODEL"
