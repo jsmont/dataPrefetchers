@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Parse initial arguments
+
 BASE_L1_PREF=$1
 BASE_L2_PREF=$2
 BASE_LLC_PREF=$3
@@ -23,7 +25,9 @@ function parsePrefList(){
     echo "${namelist[@]}"
 }
 
-echo -e "Branch predictor: ${BRANCH_PRED}\tLLC replacement: ${LLC_REPLACEMENT}\tL1 prefetcher: ${BASE_L1_PREF}"
+#Configuration and case detection
+
+echo -e "Branch predictor: ${BRANCH_PRED}\nLLC replacement: ${LLC_REPLACEMENT}"
 
 L1_PREF=($(parsePrefList l1d_pref))
 L2_PREF=($(parsePrefList l2c_pref))
@@ -57,7 +61,7 @@ echo "L1 prefetchers: ${L1_PREF[@]}"
 echo "L2 prefetchers: ${L2_PREF[@]}"
 echo "LLC prefetchers: ${LLC_PREF[@]}"
 
-
+#Compilation
 
 for l1p in "${L1_PREF[@]}"; do
     for l2p in "${L2_PREF[@]}"; do
