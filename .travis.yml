@@ -2,10 +2,8 @@ dist: trusty
 language: bash
 
 env:
-    - L1_MODEL=no
-    - L1_MODEL=next_line
-    - L2_MODEL=no
-    - L2_MODEL=next_line
+    - L1_MODEL=no           L2_MODEL=no
+    - L1_MODEL=next_line    L2_MODEL=next_line
 
 install:
     - git submodule update --recursive --remote
