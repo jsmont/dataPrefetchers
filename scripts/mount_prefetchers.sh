@@ -1,22 +1,20 @@
 #!/bin/bash
 
-REPOROOT="$( cd $(dirname "$1"); pwd -P)/.."
+REPOROOT=$(git rev-parse --show-toplevel)
 TARGET_FOLDER=$REPOROOT/ChampSim/prefetcher
 PREFETCHERS_PATH=$REPOROOT/prefetchers
 
-echo "Cleaning up original prefetchers"
-rm -f $TARGET_FOLDER/*
-
 echo "Adding custom prefetchers"
-cd prefetchers > /dev/null
+cd "$PREFETCHERS_PATH" 
 for prefetcher in */ ; do
     echo  "Adding $(basename -- "$prefetcher")"
-    cd $prefetcher
+    cd $prefetcher > /dev/null
     for file in *.cc ; do
         name=${file%.*}
-        cd $TARGET_FOLDER
+        cd "$TARGET_FOLDER"
+        rm -f  $(basename -- $prefetcher).$name
         ln -s ../../prefetchers/$prefetcher/$file $(basename -- $prefetcher).$name
-        cd $REPOROOT/prefetchers/$prefetcher
+        cd "$PREFETCHERS_PATH/$prefetcher" > /dev/null
     done
     cd ..
 done
