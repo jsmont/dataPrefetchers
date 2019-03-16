@@ -6,3 +6,4 @@ before_install:
 
 install:
     - cd $TRAVIS_BUILD_DIR/scripts; ./build.sh
+    - cd $TRAVIS_BUILD_DIR/scripts; ./build.sh
