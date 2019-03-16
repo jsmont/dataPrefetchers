@@ -2,4 +2,4 @@ dist: trusty
 language: bash
 
 install:
-    - cd $TRAVIS_BUILD_DIR/scripts ./mount_prefetchers.sh
+    - cd $TRAVIS_BUILD_DIR/scripts; ./mount_prefetchers.sh
