@@ -8,4 +8,4 @@ env:
 install:
     - cd $TRAVIS_BUILD_DIR/scripts; ./mount_prefetchers.sh
 
-scripts: "bundle exec $TRAVIS_BUILD_DIR/scripts/run.sh $BASEMODEL"
+scripts: "$TRAVIS_BUILD_DIR/scripts/run.sh $BASEMODEL"
