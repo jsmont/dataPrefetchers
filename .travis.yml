@@ -2,14 +2,19 @@ dist: trusty
 language: bash
 
 env:
-    - L1_MODEL=no           L2_MODEL=no
-    - L1_MODEL=next_line    L2_MODEL=next_line
+    global:
+        - NUM_BUILDS=4
+    matrix:
+        - BUILD_ID=0
+        - BUILD_ID=1
+        - BUILD_ID=2
+        - BUILD_ID=3
 
 install:
     - git submodule update --recursive --remote
     - cd $TRAVIS_BUILD_DIR/scripts; ./mount_prefetchers.sh
 
 script: 
-    - $TRAVIS_BUILD_DIR/scripts/build.sh $L1_MODEL $L2_MODEL
-    - $TRAVIS_BUILD_DIR/scripts/run.sh $L1_MODEL $L2_MODEL
+    - $TRAVIS_BUILD_DIR/scripts/scheduler.sh $NUM_BUILDS $BUILD_ID
+    - $TRAVIS_BUILD_DIR/scripts/build.sh 
 
